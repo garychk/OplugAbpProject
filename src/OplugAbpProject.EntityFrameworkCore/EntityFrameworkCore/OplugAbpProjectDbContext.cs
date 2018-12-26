@@ -3,6 +3,7 @@ using Abp.Zero.EntityFrameworkCore;
 using OplugAbpProject.Authorization.Roles;
 using OplugAbpProject.Authorization.Users;
 using OplugAbpProject.MultiTenancy;
+using OplugAbpProject.CMS;
 
 namespace OplugAbpProject.EntityFrameworkCore
 {
@@ -14,5 +15,8 @@ namespace OplugAbpProject.EntityFrameworkCore
             : base(options)
         {
         }
+
+        public DbSet<Article> Article { get; set; }
+        public DbSet<Category> Category { get; set; }
     }
 }

@@ -10,6 +10,7 @@ using System.Text;
 
 namespace OplugAbpProject.CMS
 {
+    [Table("Article")]
     public class Article : Entity<long>, IHasCreationTime, ICreationAudited,IMustHaveTenant
     {
         [Required, MaxLength(50)]
@@ -19,5 +20,7 @@ namespace OplugAbpProject.CMS
         public DateTime CreationTime { get; set; }
         public long? CreatorUserId { get; set; }
         public int TenantId { get; set; }
+        [Required]
+        public int CategoryId { get; set; }
     }
 }

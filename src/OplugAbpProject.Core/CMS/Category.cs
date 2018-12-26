@@ -9,6 +9,7 @@ using System.Text;
 
 namespace OplugAbpProject.CMS
 {
+    [Table("Category")]
     public class Category : Entity<long>, ICreationAudited, IMustHaveTenant, ISoftDelete
     {
         public virtual string CategoryName { get; set; }

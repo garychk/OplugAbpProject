@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OplugAbpProject.EntityFrameworkCore;
 
 namespace OplugAbpProject.Migrations
 {
     [DbContext(typeof(OplugAbpProjectDbContext))]
-    partial class OplugAbpProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181226111603_AddCMS")]
+    partial class AddCMS
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
