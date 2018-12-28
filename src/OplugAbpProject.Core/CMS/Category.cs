@@ -1,28 +1,26 @@
 ﻿using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace OplugAbpProject.CMS
 {
     [Table("Category")]
     public class Category : Entity<long>, ICreationAudited, IMustHaveTenant, ISoftDelete
     {
-        public virtual string CategoryName { get; set; }
+        public string CategoryName { get; set; }
         [Required, MaxLength(50)]
-        public virtual string CategoryIndex { get; set; }
+        public string CategoryIndex { get; set; }
         [Required, MaxLength(50)]
-        public virtual string Layout { get; set; }
+        public string Layout { get; set; }
         [Required, DefaultValue(0)]
-        public virtual int ParentId { get; set; }
+        public int ParentId { get; set; }
         [Required, DefaultValue(0)]
-        public virtual int Childs { get; set; }
+        public int Childs { get; set; }
         [Required, DefaultValue(0)]
-        public virtual int Level { get; set; }
+        public int Level { get; set; }
         [Required]
         public bool IsHide { get; set; }
         [MaxLength(50)]
