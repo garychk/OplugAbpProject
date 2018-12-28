@@ -18,5 +18,8 @@ namespace OplugAbpProject.EntityFrameworkCore
 
         public DbSet<Article> Article { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<Comments> Comments { get; set; }
+        public DbSet<Members> Members { get; set; }
+        public DbSet<Businesses> Businesses { get; set; }
     }
 }

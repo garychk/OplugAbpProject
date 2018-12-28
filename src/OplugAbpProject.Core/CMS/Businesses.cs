@@ -32,6 +32,20 @@ namespace OplugAbpProject.CMS
         public decimal longitude { get; set; }
         [DefaultValue(0)]
         public decimal latitude { get; set; }
+        [DefaultValue(0)]
+        public decimal Price { get; set; }
+        [MaxLength(50)]
+        public string VendName { get; set; }
+        [MaxLength(50)]
+        public string Telphone { get; set; }
+        [MaxLength(50)]
+        public string Contactor { get; set; }
+        [MaxLength(500)]
+        public string Address { get; set; }
+        [MaxLength(500)]
+        public string Summary { get; set; }
+        [Column(TypeName = "text")]
+        public string ExtendAttr { get; set; }
         public long? CreatorUserId { get; set; }        
         public int TenantId { get; set; }
         public DateTime CreationTime { get; set; }

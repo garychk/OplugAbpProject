@@ -40,7 +40,7 @@ namespace OplugAbpProject.CMS
         public string Summary { get; set; }
         public DateTime? EndTime { get; set; }
         [Column(TypeName = "text")]
-        public string ExtendField { get; set; }
+        public string ExtendAttr { get; set; }
         public DateTime? LastModificationTime { get; set; }
     }
 }
