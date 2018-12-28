@@ -10,6 +10,7 @@ namespace OplugAbpProject.CMS
     [Table("Category")]
     public class Category : Entity<long>, ICreationAudited, IMustHaveTenant, ISoftDelete
     {
+        [Required, MaxLength(50)]
         public string CategoryName { get; set; }
         [Required, MaxLength(50)]
         public string CategoryIndex { get; set; }
