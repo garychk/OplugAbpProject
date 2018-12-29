@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 
 namespace OplugAbpProject.CMS
 {
-    public interface IArticleAppService : IAsyncCrudAppService<ArticleDto, long, PagedResultRequestDto, CreateArticleDto, ArticleDto>
+    public interface IMembersAppService : IAsyncCrudAppService<MembersDto, long, PagedResultRequestDto, CreateMembersDto, MembersDto>
     {
-        Task<List<ArticleDto>> GetListsAsync();
-        Task<long> CreateOrUpdateAsync(CreateArticleDto input);
     }
 }

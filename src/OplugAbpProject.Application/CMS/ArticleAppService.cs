@@ -26,13 +26,16 @@ namespace OplugAbpProject.CMS
             return _objectMapper.Map(result, datas);
         }
 
-        public async Task CreateOrUpdateAsync(CreateArticleDto input)
+        public async Task<long> CreateOrUpdateAsync(CreateArticleDto input)
         {            
             var obj = ObjectMapper.Map<Article>(input);
             obj.TenantId = AbpSession.TenantId.Value;
             obj.CreatorUserId = AbpSession.UserId;
-            obj.CreationTime = DateTime.Now;
-            await Repository.InsertAndGetIdAsync(obj);
+            if (obj.Id == 0)
+                obj.CreationTime = DateTime.Now;
+            else
+                obj.LastModificationTime = DateTime.Now;
+            return await Repository.InsertOrUpdateAndGetIdAsync(obj);
         }
 
     }
