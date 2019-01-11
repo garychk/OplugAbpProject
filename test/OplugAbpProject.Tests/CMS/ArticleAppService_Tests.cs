@@ -20,7 +20,7 @@ namespace OplugAbpProject.Tests.CMS
         [Fact]
         public async  Task GetListsAsync()
         {
-           var resp = await _articleAppService.GetListsAsync();
+           var resp = await _articleAppService.GetListsAsync(0,100);
         }
 
         [Fact]
@@ -31,6 +31,15 @@ namespace OplugAbpProject.Tests.CMS
             input.Contents = "test";
             input.Title = "test";
             await _articleAppService.CreateOrUpdateAsync(input);
+        }
+
+        [Fact]
+        public async Task GetAllAsync()
+        {
+            Abp.Application.Services.Dto.PagedResultRequestDto input = new Abp.Application.Services.Dto.PagedResultRequestDto();
+            input.MaxResultCount = 10;
+            input.SkipCount = 0;
+            var resp = await _articleAppService.GetAll(input);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace OplugAbpProject.CMS.Dto
     public class CreateMembersDto
     {
         [MaxLength(500)]
-        public string Photo { get; set; }
+        public string Avatar { get; set; }
         [MaxLength(50)]
         public string Country { get; set; }
         [MaxLength(50)]

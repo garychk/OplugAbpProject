@@ -64,6 +64,17 @@ namespace OplugAbpProject.Users
             return MapToEntityDto(user);
         }
 
+        public async Task<List<UserDto>> GetAll(int SkipCount, int MaxResultCount)
+        {
+            List<UserDto> result = new List<UserDto>();
+            var lists = await Repository.GetAllListAsync();
+            foreach(var item in lists)
+            {
+                result.Add(base.MapToEntityDto(item));
+            }
+            return result;
+        }
+
         public override async Task<UserDto> Update(UserDto input)
         {
             CheckUpdatePermission();

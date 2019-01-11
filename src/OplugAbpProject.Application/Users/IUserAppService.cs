@@ -10,6 +10,8 @@ namespace OplugAbpProject.Users
     {
         Task<ListResultDto<RoleDto>> GetRoles();
 
+        Task<System.Collections.Generic.List<UserDto>> GetAll(int SkipCount, int MaxResultCount);
+
         Task ChangeLanguage(ChangeUserLanguageDto input);
     }
 }

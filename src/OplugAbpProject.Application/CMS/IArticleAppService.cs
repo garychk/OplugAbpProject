@@ -10,7 +10,7 @@ namespace OplugAbpProject.CMS
 {
     public interface IArticleAppService : IAsyncCrudAppService<ArticleDto, long, PagedResultRequestDto, CreateArticleDto, ArticleDto>
     {
-        Task<List<ArticleDto>> GetListsAsync();
+        Task<List<ArticleDto>> GetListsAsync(int SkipCount, int MaxResultCount);
         Task<long> CreateOrUpdateAsync(CreateArticleDto input);
     }
 }

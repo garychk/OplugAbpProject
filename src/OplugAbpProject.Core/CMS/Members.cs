@@ -14,7 +14,7 @@ namespace OplugAbpProject.CMS
         public DateTime CreationTime { get; set; }
         public int TenantId { get; set; }
         [MaxLength(500)]
-        public string Photo { get; set; }
+        public string Avatar { get; set; }
         [MaxLength(50)]
         public string Country { get; set; }
         [MaxLength(50)]

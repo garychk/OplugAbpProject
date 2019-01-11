@@ -15,7 +15,7 @@ namespace OplugAbpProject.CMS.Dto
         public long? CreatorUserId { get; set; }
         public DateTime CreationTime { get; set; }
         [MaxLength(500)]
-        public string Photo { get; set; }
+        public string Avatar { get; set; }
         [MaxLength(50)]
         public string Country { get; set; }
         [MaxLength(50)]

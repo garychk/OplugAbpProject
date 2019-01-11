@@ -17,7 +17,6 @@ namespace OplugAbpProject.CMS
         public CommentsAppService(IRepository<Comments, long> repository, IObjectMapper objectMapper) : base(repository)
         {
             _objectMapper = objectMapper;
-            AbpSession = NullAbpSession.Instance;
         }
     }
 }

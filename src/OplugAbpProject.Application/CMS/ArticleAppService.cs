@@ -6,6 +6,7 @@ using Abp.Runtime.Session;
 using OplugAbpProject.CMS.Dto;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace OplugAbpProject.CMS
@@ -17,24 +18,19 @@ namespace OplugAbpProject.CMS
         public ArticleAppService(IRepository<Article, long> repository, IObjectMapper objectMapper) : base(repository)
         {
             _objectMapper = objectMapper;
-            AbpSession = NullAbpSession.Instance;
+            //AbpSession = NullAbpSession.Instance;
         }
-        public async Task<List<ArticleDto>> GetListsAsync()
+        public async Task<List<ArticleDto>> GetListsAsync(int SkipCount, int MaxResultCount)
         {
             List<ArticleDto> datas = new List<ArticleDto>();
-            var result = await Repository.GetAllListAsync(o => o.TenantId == AbpSession.TenantId.Value);            
+            var result = await Repository.GetAllListAsync();
+            result = result.Skip(SkipCount).Take(MaxResultCount).ToList();
             return _objectMapper.Map(result, datas);
         }
 
         public async Task<long> CreateOrUpdateAsync(CreateArticleDto input)
         {            
             var obj = ObjectMapper.Map<Article>(input);
-            obj.TenantId = AbpSession.TenantId.Value;
-            obj.CreatorUserId = AbpSession.UserId;
-            if (obj.Id == 0)
-                obj.CreationTime = DateTime.Now;
-            else
-                obj.LastModificationTime = DateTime.Now;
             return await Repository.InsertOrUpdateAndGetIdAsync(obj);
         }
 
