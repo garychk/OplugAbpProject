@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
@@ -10,7 +11,7 @@ namespace OplugAbpProject.Users
     {
         Task<ListResultDto<RoleDto>> GetRoles();
 
-        Task<System.Collections.Generic.List<UserDto>> GetAll(int SkipCount, int MaxResultCount);
+        Task<List<UserDto>> GetLists(int SkipCount, int MaxResultCount);
 
         Task ChangeLanguage(ChangeUserLanguageDto input);
     }

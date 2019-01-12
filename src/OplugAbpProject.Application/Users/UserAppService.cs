@@ -64,11 +64,12 @@ namespace OplugAbpProject.Users
             return MapToEntityDto(user);
         }
 
-        public async Task<List<UserDto>> GetAll(int SkipCount, int MaxResultCount)
+        public async Task<List<UserDto>> GetLists(int SkipCount, int MaxResultCount)
         {
             List<UserDto> result = new List<UserDto>();
             var lists = await Repository.GetAllListAsync();
-            foreach(var item in lists)
+            lists = lists.Skip(SkipCount).Take(MaxResultCount).ToList();
+            foreach (var item in lists)
             {
                 result.Add(base.MapToEntityDto(item));
             }

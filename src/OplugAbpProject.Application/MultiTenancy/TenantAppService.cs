@@ -14,6 +14,7 @@ using OplugAbpProject.Authorization.Roles;
 using OplugAbpProject.Authorization.Users;
 using OplugAbpProject.Editions;
 using OplugAbpProject.MultiTenancy.Dto;
+using System.Collections.Generic;
 
 namespace OplugAbpProject.MultiTenancy
 {
@@ -107,6 +108,18 @@ namespace OplugAbpProject.MultiTenancy
 
             var tenant = await _tenantManager.GetByIdAsync(input.Id);
             await _tenantManager.DeleteAsync(tenant);
+        }
+
+        public async Task<List<TenantDto>> GetLists(int SkipCount, int MaxResultCount)
+        {
+            List<TenantDto> result = new List<TenantDto>();
+            var lists = await Repository.GetAllListAsync();
+            lists = lists.Skip(SkipCount).Take(MaxResultCount).ToList();
+            foreach (var item in lists)
+            {
+                result.Add(base.MapToEntityDto(item));
+            }
+            return result;
         }
 
         private void CheckErrors(IdentityResult identityResult)
