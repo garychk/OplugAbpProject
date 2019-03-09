@@ -14,6 +14,7 @@ using Abp.Castle.Logging.Log4Net;
 using Abp.Extensions;
 using OplugAbpProject.Configuration;
 using OplugAbpProject.Identity;
+using Microsoft.AspNetCore.HttpOverrides;
 
 using Abp.AspNetCore.SignalR.Hubs;
 
@@ -32,16 +33,6 @@ namespace OplugAbpProject.Web.Host.Startup
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            // MVC
-            services.AddMvc(
-                options => options.Filters.Add(new CorsAuthorizationFilterFactory(_defaultCorsPolicyName))
-            );
-
-            IdentityRegistrar.Register(services);
-            AuthConfigurer.Configure(services, _appConfiguration);
-
-            services.AddSignalR();
-
             // Configure CORS for angular2 UI
             services.AddCors(
                 options => options.AddPolicy(
@@ -54,11 +45,24 @@ namespace OplugAbpProject.Web.Host.Startup
                                 .Select(o => o.RemovePostFix("/"))
                                 .ToArray()
                         )
+                        .AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod()
                         .AllowCredentials()
                 )
             );
+
+            // MVC
+            services.AddMvc(
+                options => options.Filters.Add(new CorsAuthorizationFilterFactory(_defaultCorsPolicyName))
+            );
+
+            IdentityRegistrar.Register(services);
+            AuthConfigurer.Configure(services, _appConfiguration);
+
+            services.AddSignalR();
+
+
 
             // Swagger - Enable this line and the related lines in Configure method to enable swagger UI
             services.AddSwaggerGen(options =>
@@ -123,6 +127,11 @@ namespace OplugAbpProject.Web.Host.Startup
                 options.IndexStream = () => Assembly.GetExecutingAssembly()
                     .GetManifestResourceStream("OplugAbpProject.Web.Host.wwwroot.swagger.ui.index.html");
             }); // URL: /swagger
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            }); // 配置支持nginx
         }
     }
 }
