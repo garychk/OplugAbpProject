@@ -4,6 +4,7 @@ using OplugAbpProject.Authorization.Roles;
 using OplugAbpProject.Authorization.Users;
 using OplugAbpProject.MultiTenancy;
 using OplugAbpProject.CMS;
+using OplugAbpProject.ERP;
 
 namespace OplugAbpProject.EntityFrameworkCore
 {
@@ -21,5 +22,8 @@ namespace OplugAbpProject.EntityFrameworkCore
         public DbSet<Comments> Comments { get; set; }
         public DbSet<Members> Members { get; set; }
         public DbSet<Businesses> Businesses { get; set; }
+        public DbSet<JobHead> JobHead { get; set; }
+        public DbSet<JobMtl> JobMtl { get; set; }
+        public DbSet<JobAsmbl> JobAsmbl { get; set; }
     }
 }

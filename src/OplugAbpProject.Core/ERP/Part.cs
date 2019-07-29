@@ -81,42 +81,7 @@ namespace OplugAbpProject.ERP
         [Required]
         [StringLength(2)]
         public string CostMethod { get; set; }
-
-        [Required]
-        [StringLength(30)]
-        public string UserChar1 { get; set; }
-
-        [Required]
-        [StringLength(30)]
-        public string UserChar2 { get; set; }
-
-        [Required]
-        [StringLength(30)]
-        public string UserChar3 { get; set; }
-
-        [Required]
-        [StringLength(30)]
-        public string UserChar4 { get; set; }
-
-        public DateTime? UserDate1 { get; set; }
-
-        public DateTime? UserDate2 { get; set; }
-
-        public DateTime? UserDate3 { get; set; }
-
-        public DateTime? UserDate4 { get; set; }
-
-        public decimal UserDecimal1 { get; set; }
-
-        public decimal UserDecimal2 { get; set; }
-
-        public decimal UserDecimal3 { get; set; }
-
-        public decimal UserDecimal4 { get; set; }
-
-        public int UserInteger1 { get; set; }
-
-        public int UserInteger2 { get; set; }
+        
         /// <summary>
         /// Indicates the Tax Category for this Part. Used as a default to Order line items or Invoice line items. Can be left blank which indicates item is taxable. If entered must be valid in the TaxCat master file.  
         /// </summary>
@@ -244,19 +209,7 @@ namespace OplugAbpProject.ERP
         public string SNBaseDataType { get; set; }
 
         public bool Constrained { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string UPCCode1 { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string UPCCode2 { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string UPCCode3 { get; set; }
-
+        
         [Required]
         [StringLength(15)]
         public string EDICode { get; set; }
