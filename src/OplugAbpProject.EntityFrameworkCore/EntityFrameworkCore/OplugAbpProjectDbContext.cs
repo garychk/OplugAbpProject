@@ -25,5 +25,17 @@ namespace OplugAbpProject.EntityFrameworkCore
         public DbSet<JobHead> JobHead { get; set; }
         public DbSet<JobMtl> JobMtl { get; set; }
         public DbSet<JobAsmbl> JobAsmbl { get; set; }
+        public DbSet<JobOper> JobOper { get; set; }
+        public DbSet<JobOpDtl> JobOpDtl { get; set; }
+        public DbSet<JobPart> JobPart { get; set; }
+        public DbSet<OpMaster> OpMaster { get; set; }
+        public DbSet<OrderHed> OrderHed { get; set; }
+        public DbSet<OrderDtl> OrderDtl { get; set; }
+        public DbSet<OrderRel> OrderRel { get; set; }
+        public DbSet<POHeader> POHeader { get; set; }
+        public DbSet<PODetail> PODetail { get; set; }
+        public DbSet<PORel> PORel { get; set; }
+        public DbSet<Vendor> Vendor { get; set; }
+        public DbSet<VendPart> VendPart { get; set; }
     }
 }
