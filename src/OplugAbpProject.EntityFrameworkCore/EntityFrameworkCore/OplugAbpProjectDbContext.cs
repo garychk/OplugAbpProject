@@ -16,7 +16,6 @@ namespace OplugAbpProject.EntityFrameworkCore
             : base(options)
         {
         }
-
         public DbSet<Article> Article { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Comments> Comments { get; set; }
@@ -37,5 +36,19 @@ namespace OplugAbpProject.EntityFrameworkCore
         public DbSet<PORel> PORel { get; set; }
         public DbSet<Vendor> Vendor { get; set; }
         public DbSet<VendPart> VendPart { get; set; }
+        public DbSet<RcvHead> RcvHead { get; set; }
+        public DbSet<RcvDtl> RcvDtl { get; set; }
+        public DbSet<RcvMisc> RcvMisc { get; set; }
+        public DbSet<SugPoDtl> SugPoDtl { get; set; }
+        public DbSet<DMRHead> DMRHead { get; set; }
+        public DbSet<DMRActn> DMRActn { get; set; }
+        public DbSet<DMRCorAct> DMRCorAct { get; set; }
+        public DbSet<RMAHead> RMAHead { get; set; }
+        public DbSet<RMADtl> RMADtl { get; set; }
+        public DbSet<RMADisp> RMADisp { get; set; }
+        public DbSet<RMARcpt> RMARcpt { get; set; }
+        public DbSet<Resource> Resource { get; set; }
+        public DbSet<ResourceGroup> ResourceGroup { get; set; }
+        public DbSet<ResourceType> ResourceType { get; set; }
     }
 }

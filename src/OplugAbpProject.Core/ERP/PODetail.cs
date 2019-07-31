@@ -43,7 +43,9 @@ namespace OplugAbpProject.ERP
         [Required]
         [StringLength(6)]
         public string PUM { get; set; }
-
+        /// <summary>
+        /// 指示每个数量的成本核算。可以是“e”=每个，“c”=每百，“m”=每千。用于计算行项目的扩展单位成本。逻辑是将PODetail.OrderQty除以适当的“per”值，然后乘以单位成本。使用Part.PricePerCode作为默认值。如果零件记录不存在，则默认为“E”。
+        /// </summary>
         [Required]
         [StringLength(2)]
         public string CostPerCode { get; set; }

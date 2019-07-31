@@ -431,7 +431,7 @@ namespace OplugAbpProject.ERP
         /// </summary>
         public int MFCustNum { get; set; }
         /// <summary>
-        /// 指示应使用为此记录定义的信息的一次性标记。
+        /// 指示信息一次性标记。
         /// </summary>
         public bool UseOTMF { get; set; }
 
